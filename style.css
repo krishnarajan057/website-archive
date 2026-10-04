@@ -1,0 +1,151 @@
+/* We set the main theme colors here so they are easy to change later */
+/* Default Light Theme */
+:root {
+    --bg-color: #f7f5f0; 
+    --text-color: #2c2a25; 
+    --accent-color: #8b2635; 
+    --border-color: #d4d0c5;
+}
+
+/* Dark Theme Overrides */
+body.dark-theme {
+    --bg-color: #1a1a1a;       
+    --text-color: #e0dcd3;     
+    --accent-color: #c9a75c;   
+    --border-color: #333333;   
+}
+
+/* Ensures the background color transitions smoothly instead of snapping */
+body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Lora', serif; /* A highly readable, elegant font for stories */
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+}
+
+header {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+    font-family: 'Cinzel', serif; /* A classic, Roman-style font for titles */
+    font-size: 3rem;
+    margin: 0;
+    color: var(--text-color);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #5a574f;
+    margin-top: 0.5rem;
+}
+
+nav {
+    margin-top: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin: 0 1rem;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* The Grid Layout */
+.layout-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: grid;
+    /* This tells the grid: give the main content 2.5 parts of the space, and the sidebar 1 part */
+    grid-template-columns: 2.5fr 1fr; 
+    gap: 4rem;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    padding-left: 2rem;
+    border-left: 1px solid var(--border-color);
+}
+
+.sidebar h3 {
+    font-family: 'Cinzel', serif; /* Change this if you changed your fonts! */
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none; /* Removes the ugly default bullet points */
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+.sidebar li {
+    margin-bottom: 0.8rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: var(--accent-color);
+}
+
+.post {
+    margin-bottom: 5rem;
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.date {
+    font-size: 0.9rem;
+    color: #7a776f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0;
+}
+
+.content p {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    color: #7a776f;
+}
+
+/* Nudges the about section to the right */
+.about-section {
+    padding-left: 3rem; /* Increases space on the left */
+}
