@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronicles & Antiquity</title>
+    <!-- We are importing premium Google Fonts used by real designers -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Chronicles & Antiquity</h1>
+        <p class="subtitle">Preserving the echoes of the ancient world.</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="Civilizations.html">Ancient civilizations</a>
+            <a href="about.html">About the Author</a>
+        </nav>
+    </header>
+
+<!-- Add this container right below your </header> -->
+    <div class="layout-container">
+        
+        <main>
+            <article class="post">
+            <h2>The Dawn of Empires</h2>
+            <p class="subtitle" style="margin-bottom: 2rem;">Select a civilization to enter its archive.</p>
+
+            <div class="civ-grid">
+                <a href="Mesopotomia.html" class="civ-card">
+                    <h3>Mesopotamia</h3>
+                    <p>The Cradle of Civilization</p>
+                </a>
+                <a href="egypt.html" class="civ-card">
+                    <h3>Ancient Egypt</h3>
+                    <p>The Gift of the Nile</p>
+                </a>
+                <a href="Greek.html" class="civ-card">
+                    <h3>Ancient Greece</h3>
+                    <p>The Architects of Reason</p>
+                </a>
+                <a href="Rome.html" class="civ-card">
+                    <h3>The Roman Empire</h3>
+                    <p>The Eternal City</p>
+                </a>
+            </div>
+        </article>
+            
+                
+        
+        
+            
+        
+
+            
+         </main>
+
+        <!-- Here is your new sidebar -->
+        <aside class="sidebar">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="index.html">The Main Library</a></li>
+                <li><a href="eras.html">Historical Eras</a></li>
+                <li><a href="civilizations.html">Civilizations</a></li>
+                <li><a href="timeline.html">Interactive Timeline</a></li>
+            </ul>
+
+            <h3 style="margin-top: 3rem;">Reader Tools</h3>
+            
+            <!-- Dark Mode Toggle -->
+            <div class="tool-group">
+                <button id="theme-toggle" class="tool-btn">🌙 Dark Mode</button>
+            </div>
+
+            <!-- Typography Selector -->
+            <div class="tool-group">
+                <label for="font-selector">Typography</label>
+                <select id="font-selector" class="tool-select">
+                    <option value="'Lora', serif">Classic (Lora)</option>
+                    <option value="'Cinzel', serif">Imperial (Cinzel)</option>
+                    <option value="Arial, sans-serif">Modern (Sans-serif)</option>
+                </select>
+            </div>
+
+            <!-- Font Size Controls -->
+            <div class="tool-group">
+                <label>Text Size</label>
+                <div class="size-controls">
+                    <button id="text-decrease" class="tool-btn-small">A-</button>
+                    <button id="text-increase" class="tool-btn-small">A+</button>
+                </div>
+            </div>
+
+            <!-- Reading Focus / Highlight Mode -->
+            <div class="tool-group">
+                <button id="focus-toggle" class="tool-btn">💡 Focus Mode</button>
+                <p style="font-size: 0.8rem; color: #7a776f; margin-top: 0.5rem; font-style: italic;">Highlights the paragraph you are reading.</p>
+            </div>
+        </aside>
+
+    </div>
+    <!-- End of layout-container. Your <footer> goes right after this. -->
+
+    
+
+    <footer>
+        <p>&copy; 2026 Chronicles & Antiquity.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
