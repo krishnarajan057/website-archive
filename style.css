@@ -149,3 +149,303 @@ footer {
 .about-section {
     padding-left: 3rem; /* Increases space on the left */
 }
+
+/* --- Civilizations Dropdown Architecture --- */
+.civ-dropdown {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.civ-dropdown summary {
+    padding: 1.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.02); /* Very subtle tint */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none; /* Hides the default triangle */
+}
+
+/* This targets the Dark Mode you built earlier! */
+body.dark-theme .civ-dropdown summary {
+    background-color: rgba(255, 255, 255, 0.03); 
+}
+
+/* Custom animated plus/minus indicator */
+.civ-dropdown summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.civ-dropdown[open] summary::after {
+    content: '-';
+    transform: rotate(180deg);
+}
+
+.civ-dates {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #7a776f;
+}
+
+.civ-content {
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 1.15rem;
+}
+
+/* --- Civilization Grid Architecture --- */
+.civ-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.civ-card {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.civ-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--accent-color);
+}
+
+.civ-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+/* --- Vertical Timeline Architecture --- */
+.timeline {
+    position: relative;
+    max-width: 100%;
+    margin: 4rem 0;
+}
+
+/* The Center Line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--accent-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+/* The Containers */
+.time-node {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.time-node.left {
+    left: 0;
+    text-align: right;
+}
+
+.time-node.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* The Timeline Dots */
+.time-node::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -10px;
+    background-color: var(--bg-color);
+    border: 3px solid var(--accent-color);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.time-node.right::after {
+    left: -10px;
+}
+
+/* The Interactive Cards */
+.time-card {
+    padding: 1.5rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover Physics */
+.time-card:hover {
+    transform: scale(1.03);
+    border-color: var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Dark Mode Support for Cards */
+body.dark-theme .time-card:hover {
+    box-shadow: 0 5px 15px rgba(255,255,255,0.02);
+}
+
+/* --- Reader Tools UI --- */
+.tool-group {
+    margin-bottom: 1.5rem;
+}
+
+.tool-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: #7a776f;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tool-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.tool-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.tool-select {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.size-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tool-btn-small {
+    flex: 1;
+    padding: 0.5rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.tool-btn-small:hover {
+    background-color: var(--border-color);
+}
+
+/* --- Focus Mode Physics --- */
+/* When active, this dims all text, but brightens the specific paragraph the mouse hovers over */
+body.focus-active .content p {
+    opacity: 0.3;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+body.focus-active .content p:hover {
+    opacity: 1;
+    background-color: rgba(139, 38, 53, 0.05); /* Very subtle accent highlight */
+    border-left: 3px solid var(--accent-color);
+    padding-left: 1rem;
+    border-radius: 0 4px 4px 0;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (Media Queries)
+   ========================================= */
+
+/* Triggers when the screen is smaller than 768px (most tablets and phones) */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Stack the Grid Vertically */
+    .layout-container {
+        display: block; /* Turns off the side-by-side grid */
+        padding: 0 1.5rem;
+        margin: 2rem auto;
+    }
+
+    /* 2. Fix the Sidebar */
+    .sidebar {
+        border-left: none; /* Removes the vertical dividing line */
+        border-top: 1px solid var(--border-color); /* Adds a horizontal line instead */
+        padding-left: 0;
+        padding-top: 2rem;
+        margin-top: 3rem;
+    }
+
+    /* 3. Adjust Typography for smaller screens */
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .content p {
+        font-size: 1.1rem;
+    }
+
+    /* 4. Fix the Timeline */
+    .timeline::after {
+        left: 31px; /* Moves the center line to the far left edge */
+    }
+
+    .time-node {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .time-node.left, .time-node.right {
+        left: 0;
+        text-align: left;
+    }
+
+    .time-node.left::after, .time-node.right::after {
+        left: 21px; /* Aligns the dots to the new line position */
+    }
+
+    /* 5. Adjust the 'About the Author' alignment */
+    .about-section {
+        padding-left: 0;
+    }
+}
